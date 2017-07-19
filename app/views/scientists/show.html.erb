@@ -1,0 +1,21 @@
+<h1><%= @scientist.name %></h1>
+
+<% @scientist.experiments.each do |e| %>
+    <%= e.summary %>
+<% end %>
+
+
+
+
+<%= form_for [@scientist, @experiment] do |f| %>
+    <div>
+        <%= f.label :buget %>
+        <%= f.text_field :budget %>
+    </div>
+    <div>
+        <%= f.label :summary, "Summary Description:" %>
+        <%= f.text_area :summary %>
+    </div>
+    # other fields here
+    <%= f.submit "Save New Experiment" %>
+<% end %>
